@@ -4,20 +4,29 @@
              xmlns:local="clr-namespace:SlackPurge"
              x:Class="SlackPurge.MainPage">
 
-    <StackLayout VerticalOptions="Center">
-        <Entry x:Name="TokenEntry"
+    <ScrollView>
+        <StackLayout Padding="0,20,0,0">
+            <Entry x:Name="TokenEntry"
                Placeholder="Enter Token"
                />
-        <Entry x:Name="ChannelEntry"
+            <Entry x:Name="ChannelEntry"
                Placeholder="Enter Channel"
                />
-        <Entry x:Name="UserEntry"
+            <Entry x:Name="UserEntry"
                Placeholder="Enter User"
                />
 
-        <Button Text="Click for purge" Clicked="Button_Clicked" />
-        <Label x:Name="ResponseText" Text="" />
-        
-    </StackLayout>
+            <Button Text="Purge!"
+               
+                BackgroundColor="White"
+                BorderRadius="10"
+                BorderWidth="2"
+                BorderColor="Black"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"/>        
+            <Label x:Name="ResponseText" Text="" />
+
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

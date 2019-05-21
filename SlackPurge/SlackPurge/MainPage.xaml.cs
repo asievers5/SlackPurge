@@ -82,15 +82,15 @@ namespace SlackPurge
             ResponseText.Text = "Deleted Messages:\n";
 
             //Delete messages and show user which messages were deleted
-            foreach (SlackPurge.Message timestamp in fetch.messages)
+            foreach (SlackPurge.Message message in fetch.messages)
             {
-                if(timestamp.user == UserEntry.Text)
+                if(message.user == UserEntry.Text)
                 {
-                    client = new RestClient("https://slack.com/api/chat.delete?token=" + TokenEntry.Text + "&channel=" + ChannelEntry.Text + "&ts=" + timestamp.ts + "&pretty=1");
+                    client = new RestClient("https://slack.com/api/chat.delete?token=" + TokenEntry.Text + "&channel=" + ChannelEntry.Text + "&ts=" + message.ts + "&pretty=1");
                     client.Execute(request);
 
-                    ResponseText.Text += timestamp.user + ": " + timestamp.text + "\n";
-                    //Thread.Sleep(1200);
+                    ResponseText.Text += message.user + ": " + message.text + "\n";
+                    //Thread.Sleep(1200); // 1200 is the minimum for it to work while never hitting the api limit
                 }
 
             }
